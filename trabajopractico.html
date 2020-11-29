@@ -8,6 +8,7 @@
 
 <style>
     div{height: 200px; width: 200px; margin: 10px;}
+    /* Adds some basic style common for all divs */
 </style>
 
 <body>
@@ -17,15 +18,30 @@
    for ( i = 0; i < 6; ++i)
         {    
         blueValue = ((i*0x33).toString(16)).toUpperCase()
-        
+        //Why i from 0 to 5? 'cause customer gave those 6 colours to show
+        //why "bluevalue" and what the hell is this nest of nesting of nesting of functions??
+        //blueValue because customer sended a colletion of colours with fixed red/green values and only blue value changes
+        //why i * 0x33? 'cause i saw there was that pattern in customer collection of colours, blue value varies in hex 33 (dec 51) steps from 00 to 255
+        //Why "toString(16)"? 'cause "toString" function receives de base_notation parameter and the base of this number is hexa
+        //Why "toUppercase" 'cause "ff" may be not be interpreted as "FF" in some systems
+
         if (blueValue.length == 1)  blueValue = "0"+blueValue
+        //blueValue may be a one digit value, but is destinated to be part of another bigger number, and not the "more significant digit", so, if it's a one digit value, must be padded whith a "0" to be inserted as a "not the more significant digit" (means not the "left" digit) into a bigger number
+
 
         completeHexColorString = "#FF00"+blueValue  
+        //Well, now we create the "complete" hexa number containing red, green, and blue values, red and green are fixed for customer specifications
+
 
         const squareSample = document.createElement("div")
+        //This const will be created and destroyed in each "for" loop, and creates the div.
+    
         squareSample.style.backgroundColor = completeHexColorString
         squareSample.textContent = "Back-ground color: "+completeHexColorString
+        //Adds some style to div
+    
         document.body.appendChild (squareSample)
+        //And finally, we append the div to html's body
         }
 </script>
 </html>
