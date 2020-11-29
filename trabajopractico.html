@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo práctico N 1</title>
+</head>
+
+<style>
+    div{height: 200px; width: 200px; margin: 10px;}
+</style>
+
+<body>
+</body>
+
+<script>
+   for ( i = 0; i < 6; ++i)
+        {    
+        blueValue = ((i*0x33).toString(16)).toUpperCase()
+        
+        if (blueValue.length == 1)  blueValue = "0"+blueValue
+
+        completeHexColorString = "#FF00"+blueValue  
+
+        const squareSample = document.createElement("div")
+        squareSample.style.backgroundColor = completeHexColorString
+        squareSample.textContent = "Back-ground color: "+completeHexColorString
+        document.body.appendChild (squareSample)
+        }
+</script>
+</html>
